@@ -1,12 +1,32 @@
-﻿using System;
+﻿using TauCode.Mq.EasyNetQ.Cli.Demo.Common;
 
 namespace TauCode.Mq.EasyNetQ.Cli.Demo.Exe
 {
-    class Program
+    internal class Program : MqProgramBase
     {
-        static void Main(string[] args)
+        public Program()
+            : base(
+                new[]
+                {
+                    typeof(HelloMessage),
+                    typeof(PingMessage),
+                    typeof(QuoteMessage),
+                },
+                new[]
+                {
+                    typeof(HelloMessage),
+                    typeof(PingMessage),
+                    typeof(QuoteMessage),
+                },
+                "host=localhost")
         {
-            Console.WriteLine("Hello World!");
+        }
+
+        public static void Main(string[] args)
+        {
+            var program = new Program();
+            program.Init();
+            program.Run();
         }
     }
 }

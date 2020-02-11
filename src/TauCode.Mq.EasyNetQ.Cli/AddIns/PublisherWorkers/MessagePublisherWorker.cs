@@ -7,14 +7,12 @@ using TauCode.Cli.CommandSummary;
 using TauCode.Cli.Data;
 using TauCode.Extensions;
 using TauCode.Mq.Abstractions;
-using TauCode.Mq.EasyNetQ.Cli.Lab.Di;
 
 namespace TauCode.Mq.EasyNetQ.Cli.AddIns.PublisherWorkers
 {
-    public class MessagePublisherWorker : AutofacCliWorkerBase
+    public class MessagePublisherWorker : PublisherWorkerBase
     {
         private readonly MqProgramBase _mqProgram;
-        private readonly IMessagePublisher _messagePublisher;
 
         public MessagePublisherWorker(ILifetimeScope lifetimeScope)
             : base(
@@ -24,7 +22,6 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns.PublisherWorkers
                 true)
         {
             _mqProgram = this.LifetimeScope.Resolve<MqProgramBase>();
-            _messagePublisher = this.LifetimeScope.Resolve<IMessagePublisher>();
         }
 
         public override void Process(IList<CliCommandEntry> entries)
@@ -53,7 +50,7 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns.PublisherWorkers
             var json = TextCopy.Clipboard.GetText();
             var message = (IMessage)JsonConvert.DeserializeObject(json, type);
 
-            _messagePublisher.Publish(message);
+            this.MessagePublisher.Publish(message);
         }
     }
 }
