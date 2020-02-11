@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TauCode.Cli" Version="1.0.0-dev-2020-01-20-17-32" />
+    <PackageReference Include="TauCode.Mq.Autofac" Version="1.0.0-dev-2020-01-30-22-29" />
+    <PackageReference Include="TauCode.Mq.EasyNetQ" Version="1.0.0-dev-2020-01-30-14-07" />
+    <PackageReference Include="TextCopy" Version="3.0.0" />
+  </ItemGroup>
+
+</Project>
