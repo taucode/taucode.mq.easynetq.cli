@@ -6,12 +6,12 @@ using TauCode.Extensions;
 
 namespace TauCode.Mq.EasyNetQ.Cli.AddIns.SubscriberWorkers
 {
-    public class AddTypeSubscriberWorker : SubscriberWorkerBase
+    public class GetSubscriptionsSubscriberWorker : SubscriberWorkerBase
     {
-        public AddTypeSubscriberWorker(ILifetimeScope lifetimeScope)
+        public GetSubscriptionsSubscriberWorker(ILifetimeScope lifetimeScope)
             : base(
                 lifetimeScope,
-                typeof(MqHost).Assembly.GetResourceText($".{nameof(AddTypeSubscriberWorker)}.lisp", true),
+                typeof(MqHost).Assembly.GetResourceText($".{nameof(GetSubscriptionsSubscriberWorker)}.lisp", true),
                 null,
                 true)
         {

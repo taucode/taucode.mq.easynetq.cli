@@ -5,14 +5,14 @@ using TauCode.Extensions;
 
 namespace TauCode.Mq.EasyNetQ.Cli.AddIns.PublisherWorkers
 {
-    public class TypesPublisherWorker : PublisherWorkerBase
+    public class MessageTypesPublisherWorker : PublisherWorkerBase
     {
         private readonly MqProgramBase _mqProgram;
 
-        public TypesPublisherWorker(ILifetimeScope lifetimeScope)
+        public MessageTypesPublisherWorker(ILifetimeScope lifetimeScope)
             : base(
                 lifetimeScope,
-                typeof(MqHost).Assembly.GetResourceText($".{nameof(TypesPublisherWorker)}.lisp", true),
+                typeof(MqHost).Assembly.GetResourceText($".{nameof(MessageTypesPublisherWorker)}.lisp", true),
                 null,
                 true)
         {

@@ -99,18 +99,21 @@ namespace TauCode.Mq.EasyNetQ.Cli
                 typeof(PublisherAddIn),
                 typeof(SubscriberAddIn),
 
-                typeof(StatusPublisherWorker),
                 typeof(MessagePublisherWorker),
                 typeof(StartPublisherWorker),
+                typeof(StatusPublisherWorker),
                 typeof(StopPublisherWorker),
-                typeof(TypePublisherWorker),
-                typeof(TypesPublisherWorker),
+                typeof(MessageTypePublisherWorker),
+                typeof(MessageTypesPublisherWorker),
 
-                typeof(StatusSubscriberWorker),
+                typeof(GetSubscriptionsSubscriberWorker),
                 typeof(StartSubscriberWorker),
+                typeof(StatusSubscriberWorker),
                 typeof(StopSubscriberWorker),
-                typeof(AddTypeSubscriberWorker),
-                typeof(RemoveTypeSubscriberWorker),
+                typeof(SubscribeHandlerSubscriberWorker),
+                typeof(TypesSubscriberWorker),
+                typeof(TypeSubscriberWorker),
+                typeof(UnsubscribeAllSubscriberWorker),
             };
 
             foreach (var cliType in cliTypes)

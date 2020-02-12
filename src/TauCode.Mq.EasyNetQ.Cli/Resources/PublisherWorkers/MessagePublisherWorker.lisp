@@ -47,5 +47,20 @@
 			:doc-subst "path to JSON file")
 	)
 
+	(opt
+		(multi-text
+			:classes key
+			:values "-t" "--topic"
+			:alias topic
+			:action key)
+
+		(some-text
+			:classes string
+			:action value
+			:description "Topic to publish message with."
+			:doc-subst "topic")
+		
+	)
+
 	(end)
 )

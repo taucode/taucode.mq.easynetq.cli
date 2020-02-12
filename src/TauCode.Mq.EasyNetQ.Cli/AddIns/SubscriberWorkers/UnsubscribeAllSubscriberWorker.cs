@@ -1,16 +1,17 @@
 ﻿using Autofac;
+using System;
 using System.Collections.Generic;
 using TauCode.Cli.Data;
 using TauCode.Extensions;
 
 namespace TauCode.Mq.EasyNetQ.Cli.AddIns.SubscriberWorkers
 {
-    public class StopSubscriberWorker : SubscriberWorkerBase
+    public class UnsubscribeAllSubscriberWorker : SubscriberWorkerBase
     {
-        public StopSubscriberWorker(ILifetimeScope lifetimeScope)
+        public UnsubscribeAllSubscriberWorker(ILifetimeScope lifetimeScope)
             : base(
                 lifetimeScope,
-                typeof(MqHost).Assembly.GetResourceText($".{nameof(StopSubscriberWorker)}.lisp", true),
+                typeof(MqHost).Assembly.GetResourceText($".{nameof(UnsubscribeAllSubscriberWorker)}.lisp", true),
                 null,
                 true)
         {
@@ -18,7 +19,7 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns.SubscriberWorkers
 
         public override void Process(IList<CliCommandEntry> entries)
         {
-            this.MessageSubscriber.Stop();
+            throw new NotImplementedException();
         }
     }
 }

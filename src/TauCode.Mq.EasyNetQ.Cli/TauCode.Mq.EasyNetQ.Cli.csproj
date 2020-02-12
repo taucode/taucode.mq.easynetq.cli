@@ -6,16 +6,19 @@
 
   <ItemGroup>
     <None Remove="Resources\PublisherWorkers\MessagePublisherWorker.lisp" />
+    <None Remove="Resources\PublisherWorkers\MessageTypePublisherWorker.lisp" />
+    <None Remove="Resources\PublisherWorkers\MessageTypesPublisherWorker.lisp" />
     <None Remove="Resources\PublisherWorkers\StartPublisherWorker.lisp" />
     <None Remove="Resources\PublisherWorkers\StatusPublisherWorker.lisp" />
     <None Remove="Resources\PublisherWorkers\StopPublisherWorker.lisp" />
-    <None Remove="Resources\PublisherWorkers\TypePublisherWorker.lisp" />
-    <None Remove="Resources\PublisherWorkers\TypesPublisherWorker.lisp" />
-    <None Remove="Resources\SubscriberWorkers\AddTypeSubscriberWorker.lisp" />
-    <None Remove="Resources\SubscriberWorkers\RemoveTypeSubscriberWorker.lisp" />
+    <None Remove="Resources\SubscriberWorkers\GetSubscriptionsSubscriberWorker.lisp" />
     <None Remove="Resources\SubscriberWorkers\StartSubscriberWorker.lisp" />
     <None Remove="Resources\SubscriberWorkers\StatusSubscriberWorker.lisp" />
     <None Remove="Resources\SubscriberWorkers\StopSubscriberWorker.lisp" />
+    <None Remove="Resources\SubscriberWorkers\SubscribeHandlerSubscriberWorker.lisp" />
+    <None Remove="Resources\SubscriberWorkers\TypesSubscriberWorker.lisp" />
+    <None Remove="Resources\SubscriberWorkers\TypeSubscriberWorker.lisp" />
+    <None Remove="Resources\SubscriberWorkers\UnsubscribeAllSubscriberWorker.lisp" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,10 +26,13 @@
     <EmbeddedResource Include="Resources\PublisherWorkers\StartPublisherWorker.lisp" />
     <EmbeddedResource Include="Resources\PublisherWorkers\StatusPublisherWorker.lisp" />
     <EmbeddedResource Include="Resources\PublisherWorkers\StopPublisherWorker.lisp" />
-    <EmbeddedResource Include="Resources\PublisherWorkers\TypePublisherWorker.lisp" />
-    <EmbeddedResource Include="Resources\PublisherWorkers\TypesPublisherWorker.lisp" />
-    <EmbeddedResource Include="Resources\SubscriberWorkers\AddTypeSubscriberWorker.lisp" />
-    <EmbeddedResource Include="Resources\SubscriberWorkers\RemoveTypeSubscriberWorker.lisp" />
+    <EmbeddedResource Include="Resources\PublisherWorkers\MessageTypePublisherWorker.lisp" />
+    <EmbeddedResource Include="Resources\PublisherWorkers\MessageTypesPublisherWorker.lisp" />
+    <EmbeddedResource Include="Resources\SubscriberWorkers\GetSubscriptionsSubscriberWorker.lisp" />
+    <EmbeddedResource Include="Resources\SubscriberWorkers\UnsubscribeAllSubscriberWorker.lisp" />
+    <EmbeddedResource Include="Resources\SubscriberWorkers\TypeSubscriberWorker.lisp" />
+    <EmbeddedResource Include="Resources\SubscriberWorkers\TypesSubscriberWorker.lisp" />
+    <EmbeddedResource Include="Resources\SubscriberWorkers\SubscribeHandlerSubscriberWorker.lisp" />
     <EmbeddedResource Include="Resources\SubscriberWorkers\StartSubscriberWorker.lisp" />
     <EmbeddedResource Include="Resources\SubscriberWorkers\StatusSubscriberWorker.lisp" />
     <EmbeddedResource Include="Resources\SubscriberWorkers\StopSubscriberWorker.lisp" />
