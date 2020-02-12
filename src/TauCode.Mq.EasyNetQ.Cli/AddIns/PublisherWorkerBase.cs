@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using TauCode.Mq.EasyNetQ.Cli.Lab.Di;
+using TauCode.Mq.EasyNetQ.Cli.Di;
 
 namespace TauCode.Mq.EasyNetQ.Cli.AddIns
 {

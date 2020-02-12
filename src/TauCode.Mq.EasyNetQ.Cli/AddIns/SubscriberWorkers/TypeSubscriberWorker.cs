@@ -7,16 +7,16 @@ using TauCode.Cli.CommandSummary;
 using TauCode.Cli.Data;
 using TauCode.Extensions;
 
-namespace TauCode.Mq.EasyNetQ.Cli.AddIns.PublisherWorkers
+namespace TauCode.Mq.EasyNetQ.Cli.AddIns.SubscriberWorkers
 {
-    public class TypePublisherWorker : PublisherWorkerBase
+    public class TypeSubscriberWorker : SubscriberWorkerBase
     {
         private readonly MqProgramBase _mqProgram;
 
-        public TypePublisherWorker(ILifetimeScope lifetimeScope)
+        public TypeSubscriberWorker(ILifetimeScope lifetimeScope)
             : base(
                 lifetimeScope,
-                typeof(MqHost).Assembly.GetResourceText($".{nameof(TypePublisherWorker)}.lisp", true),
+                typeof(MqHost).Assembly.GetResourceText($".{nameof(TypeSubscriberWorker)}.lisp", true),
                 null,
                 true)
         {
@@ -28,7 +28,7 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns.PublisherWorkers
             var summary = (new CliCommandSummaryBuilder()).Build(this.Descriptor, entries);
             var typeName = summary.Arguments["type-name"].Single();
 
-            var types = _mqProgram.PublishedMessageTypes;
+            var types = _mqProgram.SubscribedMessageTypes;
             var matchingTypes = types
                 .Where(x => x.FullName.IndexOf(typeName, StringComparison.InvariantCultureIgnoreCase) >= 0)
                 .ToList();

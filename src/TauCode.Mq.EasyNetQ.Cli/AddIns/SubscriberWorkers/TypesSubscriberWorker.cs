@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using TauCode.Cli.Data;
 using TauCode.Extensions;
 
-namespace TauCode.Mq.EasyNetQ.Cli.AddIns.PublisherWorkers
+namespace TauCode.Mq.EasyNetQ.Cli.AddIns.SubscriberWorkers
 {
-    public class TypesPublisherWorker : PublisherWorkerBase
+    public class TypesSubscriberWorker : SubscriberWorkerBase
     {
         private readonly MqProgramBase _mqProgram;
 
-        public TypesPublisherWorker(ILifetimeScope lifetimeScope)
+        public TypesSubscriberWorker(ILifetimeScope lifetimeScope)
             : base(
                 lifetimeScope,
-                typeof(MqHost).Assembly.GetResourceText($".{nameof(TypesPublisherWorker)}.lisp", true),
+                typeof(MqHost).Assembly.GetResourceText($".{nameof(TypesSubscriberWorker)}.lisp", true),
                 null,
                 true)
         {
@@ -21,7 +21,7 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns.PublisherWorkers
 
         public override void Process(IList<CliCommandEntry> entries)
         {
-            var types = _mqProgram.PublishedMessageTypes;
+            var types = _mqProgram.SubscribedMessageTypes;
 
             foreach (var type in types)
             {

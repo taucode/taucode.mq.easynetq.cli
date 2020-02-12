@@ -2,7 +2,7 @@
 using System;
 using TauCode.Cli;
 
-namespace TauCode.Mq.EasyNetQ.Cli.Lab.Di
+namespace TauCode.Mq.EasyNetQ.Cli.Di
 {
     public abstract class AutofacCliHostBase : CliHostBase
     {

@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using TauCode.Cli.Data;
 using TauCode.Extensions;
-using TauCode.Mq.EasyNetQ.Cli.Lab.Di;
 
 namespace TauCode.Mq.EasyNetQ.Cli.AddIns.SubscriberWorkers
 {
-    public class StatusSubscriberWorker : AutofacCliWorkerBase
+    public class StatusSubscriberWorker : SubscriberWorkerBase
     {
-        private readonly IMessageSubscriber _messageSubscriber;
-
         public StatusSubscriberWorker(ILifetimeScope lifetimeScope)
             : base(
                 lifetimeScope,
@@ -17,12 +14,11 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns.SubscriberWorkers
                 null,
                 true)
         {
-            _messageSubscriber = this.LifetimeScope.Resolve<IMessageSubscriber>();
         }
 
         public override void Process(IList<CliCommandEntry> entries)
         {
-            var status = _messageSubscriber.State;
+            var status = this.MessageSubscriber.State;
             this.Output.WriteLine(status.ToString());
         }
     }

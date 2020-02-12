@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using TauCode.Cli.Data;
 using TauCode.Extensions;
-using TauCode.Mq.EasyNetQ.Cli.Lab.Di;
 
 namespace TauCode.Mq.EasyNetQ.Cli.AddIns.PublisherWorkers
 {
-    public class StopPublisherWorker : AutofacCliWorkerBase
+    public class StopPublisherWorker : PublisherWorkerBase
     {
-        private readonly IMessagePublisher _messagePublisher;
-
         public StopPublisherWorker(ILifetimeScope lifetimeScope)
             : base(
                 lifetimeScope,
@@ -17,12 +14,11 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns.PublisherWorkers
                 null,
                 true)
         {
-            _messagePublisher = this.LifetimeScope.Resolve<IMessagePublisher>();
         }
 
         public override void Process(IList<CliCommandEntry> entries)
         {
-            _messagePublisher.Stop();
+            this.MessagePublisher.Stop();
         }
     }
 }

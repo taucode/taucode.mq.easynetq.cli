@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace TauCode.Mq.EasyNetQ.Cli.Lab.Di
+namespace TauCode.Mq.EasyNetQ.Cli.Di
 {
     public static class DiExtensions
     {
