@@ -11,6 +11,7 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns
         public PublisherAddIn(ILifetimeScope lifetimeScope)
             : base(lifetimeScope, "pub", null, true)
         {
+            this.Description = "Provides functionality for publishing messages.";
         }
 
         protected override IReadOnlyList<ICliWorker> CreateWorkers()

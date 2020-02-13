@@ -1,8 +1,8 @@
-﻿(defblock :name get-subscriber-message-type :is-top t
+﻿(defblock :name get-subscriber-handler-type :is-top t
 	(worker
-		:worker-name get-subscriber-message-type
-		:verb "type"
-		:description "Gets message type description by name or its part."
+		:worker-name get-subscriber-handler-type
+		:verb "handler-type"
+		:description "Gets handler type description by name or its part."
 		:usage-samples (
 			"sub type Foo.MyMessage"
 			"sub type MyMes"

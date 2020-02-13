@@ -5,14 +5,14 @@ using TauCode.Extensions;
 
 namespace TauCode.Mq.EasyNetQ.Cli.AddIns.SubscriberWorkers
 {
-    public class TypesSubscriberWorker : SubscriberWorkerBase
+    public class HandlerTypesSubscriberWorker : SubscriberWorkerBase
     {
         private readonly MqProgramBase _mqProgram;
 
-        public TypesSubscriberWorker(ILifetimeScope lifetimeScope)
+        public HandlerTypesSubscriberWorker(ILifetimeScope lifetimeScope)
             : base(
                 lifetimeScope,
-                typeof(MqHost).Assembly.GetResourceText($".{nameof(TypesSubscriberWorker)}.lisp", true),
+                typeof(MqHost).Assembly.GetResourceText($".{nameof(HandlerTypesSubscriberWorker)}.lisp", true),
                 null,
                 true)
         {
@@ -21,7 +21,7 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns.SubscriberWorkers
 
         public override void Process(IList<CliCommandEntry> entries)
         {
-            var types = _mqProgram.SubscribedMessageTypes;
+            var types = _mqProgram.AvailableMessageHandlerTypes;
 
             foreach (var type in types)
             {

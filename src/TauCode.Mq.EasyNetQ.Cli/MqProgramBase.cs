@@ -17,9 +17,11 @@ namespace TauCode.Mq.EasyNetQ.Cli
     {
         public MqProgramBase(
             Type[] publishedMessageTypes,
-            Type[] subscribedMessageTypes,
+            Type[] availableMessageHandlerTypes,
             string connectionString)
         {
+            #region check published message types
+
             if (publishedMessageTypes == null)
             {
                 throw new ArgumentNullException(nameof(publishedMessageTypes));
@@ -36,24 +38,33 @@ namespace TauCode.Mq.EasyNetQ.Cli
                 throw new ArgumentException($"'{badMessageType.FullName}' is not derived from '{typeof(IMessage).FullName}'.");
             }
 
-            if (subscribedMessageTypes == null)
+            #endregion
+
+            #region check available message handler types
+
+            if (availableMessageHandlerTypes == null)
             {
-                throw new ArgumentNullException(nameof(subscribedMessageTypes));
+                throw new ArgumentNullException(nameof(availableMessageHandlerTypes));
             }
 
-            if (subscribedMessageTypes.Any(x => x == null))
+            if (availableMessageHandlerTypes.Any(x => x == null))
             {
-                throw new ArgumentException($"'{subscribedMessageTypes}' cannot contain nulls.");
+                throw new ArgumentException($"'{availableMessageHandlerTypes}' cannot contain nulls.");
             }
 
-            badMessageType = subscribedMessageTypes.FirstOrDefault(x => !x.IsAssignableTo<IMessage>());
-            if (badMessageType != null)
+            foreach (var messageHandlerType in availableMessageHandlerTypes)
             {
-                throw new ArgumentException($"'{badMessageType.FullName}' is not derived from '{typeof(IMessage).FullName}'.");
+                if (!messageHandlerType.IsAssignableTo<IMessageHandler>())
+                {
+                    throw new ArgumentException($"'{nameof(messageHandlerType)}' is not derived from 'IMessageHandler'");
+                }
             }
+
+            #endregion
+
 
             this.PublishedMessageTypes = publishedMessageTypes.Distinct().ToList();
-            this.SubscribedMessageTypes = subscribedMessageTypes.Distinct().ToList();
+            this.AvailableMessageHandlerTypes = availableMessageHandlerTypes.Distinct().ToList();
 
             this.ConnectionString = connectionString ?? throw new ArgumentNullException(nameof(connectionString));
         }
@@ -62,9 +73,9 @@ namespace TauCode.Mq.EasyNetQ.Cli
         protected string ConnectionString { get; private set; }
 
         public IReadOnlyList<Type> PublishedMessageTypes { get; }
-        public IReadOnlyList<Type> SubscribedMessageTypes { get; }
+        public IReadOnlyList<Type> AvailableMessageHandlerTypes { get; }
 
-        protected IReadOnlyList<Type> MessageHandlerTypes { get; private set; }
+        //protected IReadOnlyList<Type> MessageHandlerTypes { get; private set; }
 
         public void Init()
         {
@@ -107,12 +118,12 @@ namespace TauCode.Mq.EasyNetQ.Cli
                 typeof(MessageTypesPublisherWorker),
 
                 typeof(GetSubscriptionsSubscriberWorker),
+                typeof(HandlerTypesSubscriberWorker),
+                typeof(HandlerTypeSubscriberWorker),
                 typeof(StartSubscriberWorker),
                 typeof(StatusSubscriberWorker),
                 typeof(StopSubscriberWorker),
                 typeof(SubscribeHandlerSubscriberWorker),
-                typeof(TypesSubscriberWorker),
-                typeof(TypeSubscriberWorker),
                 typeof(UnsubscribeAllSubscriberWorker),
             };
 
@@ -124,20 +135,14 @@ namespace TauCode.Mq.EasyNetQ.Cli
                     .SingleInstance();
             }
 
-            var messageHandlerTypes = new List<Type>();
-
-            foreach (var subscribedMessageType in this.SubscribedMessageTypes)
+            foreach (var messageHandlerType in this.AvailableMessageHandlerTypes)
             {
-                var handlerType = typeof(JsonMessageHandler<>).MakeGenericType(subscribedMessageType);
-                messageHandlerTypes.Add(handlerType);
-
                 builder
-                    .RegisterType(handlerType)
+                    .RegisterType(messageHandlerType)
                     .AsSelf()
                     .InstancePerLifetimeScope();
             }
 
-            this.MessageHandlerTypes = messageHandlerTypes;
             this.Container = builder.Build();
         }
 
@@ -146,14 +151,8 @@ namespace TauCode.Mq.EasyNetQ.Cli
             var publisher = this.Container.Resolve<IMessagePublisher>();
             var subscriber = this.Container.Resolve<IMessageSubscriber>();
 
-            foreach (var messageHandlerType in this.MessageHandlerTypes)
-            {
-                subscriber.Subscribe(messageHandlerType);
-            }
-
             publisher.Start();
-            subscriber.Start();
-
+            
             var host = this.Container.Resolve<MqHost>();
             host.Output = Console.Out;
 
@@ -185,7 +184,7 @@ namespace TauCode.Mq.EasyNetQ.Cli
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex);
+                    Console.WriteLine(ex.Message); // todo: virtual method 'Output exception'
                 }
             }
 

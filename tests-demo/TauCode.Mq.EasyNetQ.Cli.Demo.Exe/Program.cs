@@ -1,4 +1,5 @@
 ﻿using TauCode.Mq.EasyNetQ.Cli.Demo.Common;
+using TauCode.Mq.EasyNetQ.Cli.Demo.Exe.MessageHandlers;
 
 namespace TauCode.Mq.EasyNetQ.Cli.Demo.Exe
 {
@@ -14,9 +15,9 @@ namespace TauCode.Mq.EasyNetQ.Cli.Demo.Exe
                 },
                 new[]
                 {
-                    typeof(HelloMessage),
-                    typeof(PingMessage),
-                    typeof(QuoteMessage),
+                    typeof(HelloMessageHandler),
+                    typeof(PingMessageHandler),
+                    typeof(QuoteMessageHandler),
                 },
                 "host=localhost")
         {

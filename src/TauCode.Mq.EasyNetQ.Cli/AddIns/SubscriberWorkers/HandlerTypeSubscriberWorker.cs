@@ -9,14 +9,14 @@ using TauCode.Extensions;
 
 namespace TauCode.Mq.EasyNetQ.Cli.AddIns.SubscriberWorkers
 {
-    public class TypeSubscriberWorker : SubscriberWorkerBase
+    public class HandlerTypeSubscriberWorker : SubscriberWorkerBase
     {
         private readonly MqProgramBase _mqProgram;
 
-        public TypeSubscriberWorker(ILifetimeScope lifetimeScope)
+        public HandlerTypeSubscriberWorker(ILifetimeScope lifetimeScope)
             : base(
                 lifetimeScope,
-                typeof(MqHost).Assembly.GetResourceText($".{nameof(TypeSubscriberWorker)}.lisp", true),
+                typeof(MqHost).Assembly.GetResourceText($".{nameof(HandlerTypeSubscriberWorker)}.lisp", true),
                 null,
                 true)
         {
@@ -28,7 +28,7 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns.SubscriberWorkers
             var summary = (new CliCommandSummaryBuilder()).Build(this.Descriptor, entries);
             var typeName = summary.Arguments["type-name"].Single();
 
-            var types = _mqProgram.SubscribedMessageTypes;
+            var types = _mqProgram.AvailableMessageHandlerTypes;
             var matchingTypes = types
                 .Where(x => x.FullName.IndexOf(typeName, StringComparison.InvariantCultureIgnoreCase) >= 0)
                 .ToList();
@@ -39,10 +39,8 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns.SubscriberWorkers
             }
 
             var type = matchingTypes.Single();
-            var sample = Activator.CreateInstance(type);
-            var json = JsonConvert.SerializeObject(sample, Formatting.Indented);
 
-            this.Output.WriteLine(json);
+            this.Output.WriteLine(type.FullName);
         }
     }
 }

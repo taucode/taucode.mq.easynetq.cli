@@ -2,7 +2,9 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using TauCode.Cli.CommandSummary;
 using TauCode.Cli.Data;
 using TauCode.Extensions;
@@ -28,6 +30,22 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns.PublisherWorkers
         {
             var summary = (new CliCommandSummaryBuilder()).Build(this.Descriptor, entries);
             var typeName = summary.Arguments["type-name"].Single();
+            var json = summary.Arguments.GetOrDefault("json")?.SingleOrDefault();
+            var isClipboard = summary.Options.Contains("clipboard");
+            var fileName = summary.Keys.GetOrDefault("file")?.SingleOrDefault();
+            var topic = summary.Keys.GetOrDefault("topic")?.SingleOrDefault();
+
+            if (json == null)
+            {
+                if (isClipboard)
+                {
+                    json = TextCopy.Clipboard.GetText();
+                }
+                else
+                {
+                    json = File.ReadAllText(fileName, Encoding.UTF8);
+                }
+            }
 
             var types = _mqProgram.PublishedMessageTypes;
             var matchingTypes = types
@@ -41,16 +59,17 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns.PublisherWorkers
 
             var type = matchingTypes.Single();
 
-            var clipboard = summary.Options.Contains("clipboard");
-            if (!clipboard)
-            {
-                throw new NotImplementedException();
-            }
-
-            var json = TextCopy.Clipboard.GetText();
+            
             var message = (IMessage)JsonConvert.DeserializeObject(json, type);
 
-            this.MessagePublisher.Publish(message);
+            if (topic == null)
+            {
+                this.MessagePublisher.Publish(message);
+            }
+            else
+            {
+                this.MessagePublisher.Publish(message, topic);
+            }
         }
     }
 }

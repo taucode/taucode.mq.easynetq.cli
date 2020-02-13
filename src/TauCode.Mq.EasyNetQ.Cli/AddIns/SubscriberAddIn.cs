@@ -11,7 +11,9 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns
         public SubscriberAddIn(ILifetimeScope lifetimeScope)
             : base(lifetimeScope, "sub", null, true)
         {
+            this.Description = "Provides functionality for subscription to messages.";
         }
+
 
         protected override IReadOnlyList<ICliWorker> CreateWorkers()
         {
