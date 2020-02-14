@@ -33,7 +33,7 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns.SubscriberWorkers
                 {
                     MessageTypeFullName = x.MessageType.FullName,
                     Topic = x.Topic,
-                    HandlerTypeFullName = x.HandlerType.FullName,
+                    HandlerTypeFullName = x.MessageHandlerType.FullName,
                 })
                 .Select(x => JsonConvert.SerializeObject(x, Formatting.Indented))
                 .ToList();

@@ -62,7 +62,6 @@ namespace TauCode.Mq.EasyNetQ.Cli
 
             #endregion
 
-
             this.PublishedMessageTypes = publishedMessageTypes.Distinct().ToList();
             this.AvailableMessageHandlerTypes = availableMessageHandlerTypes.Distinct().ToList();
 
@@ -74,8 +73,6 @@ namespace TauCode.Mq.EasyNetQ.Cli
 
         public IReadOnlyList<Type> PublishedMessageTypes { get; }
         public IReadOnlyList<Type> AvailableMessageHandlerTypes { get; }
-
-        //protected IReadOnlyList<Type> MessageHandlerTypes { get; private set; }
 
         public void Init()
         {
@@ -171,6 +168,11 @@ namespace TauCode.Mq.EasyNetQ.Cli
                 {
                     Console.Write(" : ");
                     var line = Console.ReadLine();
+                    if (string.IsNullOrWhiteSpace(line))
+                    {
+                        continue;
+                    }
+
                     var command = host.ParseLine(line);
                     host.DispatchCommand(command);
                 }

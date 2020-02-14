@@ -16,8 +16,11 @@ namespace TauCode.Mq.EasyNetQ.Cli.Demo.Exe
                 new[]
                 {
                     typeof(HelloMessageHandler),
+                    typeof(HelloMessageTextHandler),
                     typeof(PingMessageHandler),
+                    typeof(PingMessageTextHandler),
                     typeof(QuoteMessageHandler),
+                    typeof(QuoteMessageTextHandler),
                 },
                 "host=localhost")
         {
