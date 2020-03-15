@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2E74368E-D88B-4F78-A265-BF9863D3DC4C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{DA8A5B9E-7175-4BAB-83FC-E7B84652ADD4}"
+	ProjectSection(SolutionItems) = preProject
+		nuget\TauCode.Mq.EasyNetQ.Cli.nuspec = nuget\TauCode.Mq.EasyNetQ.Cli.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{C65C2B42-46F2-4F4D-BF76-9259ADA57CBE}"
+	ProjectSection(SolutionItems) = preProject
+		misc\changelog.txt = misc\changelog.txt
+		misc\todo.txt = misc\todo.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{17BF222C-BC98-45B7-9587-4DFD2175C642}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TauCode.Mq.EasyNetQ.Cli", "src\TauCode.Mq.EasyNetQ.Cli\TauCode.Mq.EasyNetQ.Cli.csproj", "{5C2F2E4A-F462-42A4-A202-E8C8D1D3B905}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests-demo", "tests-demo", "{00584639-0E4C-4D63-A12C-8CE737543A77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TauCode.Mq.EasyNetQ.Cli.Tests", "tests\TauCode.Mq.EasyNetQ.Cli.Tests\TauCode.Mq.EasyNetQ.Cli.Tests.csproj", "{C182D193-9F8E-4103-A92C-446FD87577E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TauCode.Mq.EasyNetQ.Cli.Demo.Common", "tests-demo\TauCode.Mq.EasyNetQ.Cli.Demo.Common\TauCode.Mq.EasyNetQ.Cli.Demo.Common.csproj", "{B6400BD3-B749-4A89-BCEB-B1D7E7A5E00B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TauCode.Mq.EasyNetQ.Cli.Demo.Exe", "tests-demo\TauCode.Mq.EasyNetQ.Cli.Demo.Exe\TauCode.Mq.EasyNetQ.Cli.Demo.Exe.csproj", "{84542690-2BCE-45ED-8C07-C93BD937DE84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C2F2E4A-F462-42A4-A202-E8C8D1D3B905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C2F2E4A-F462-42A4-A202-E8C8D1D3B905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C2F2E4A-F462-42A4-A202-E8C8D1D3B905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C2F2E4A-F462-42A4-A202-E8C8D1D3B905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C182D193-9F8E-4103-A92C-446FD87577E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C182D193-9F8E-4103-A92C-446FD87577E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C182D193-9F8E-4103-A92C-446FD87577E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C182D193-9F8E-4103-A92C-446FD87577E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6400BD3-B749-4A89-BCEB-B1D7E7A5E00B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6400BD3-B749-4A89-BCEB-B1D7E7A5E00B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6400BD3-B749-4A89-BCEB-B1D7E7A5E00B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6400BD3-B749-4A89-BCEB-B1D7E7A5E00B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84542690-2BCE-45ED-8C07-C93BD937DE84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84542690-2BCE-45ED-8C07-C93BD937DE84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84542690-2BCE-45ED-8C07-C93BD937DE84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84542690-2BCE-45ED-8C07-C93BD937DE84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5C2F2E4A-F462-42A4-A202-E8C8D1D3B905} = {2E74368E-D88B-4F78-A265-BF9863D3DC4C}
+		{C182D193-9F8E-4103-A92C-446FD87577E1} = {17BF222C-BC98-45B7-9587-4DFD2175C642}
+		{B6400BD3-B749-4A89-BCEB-B1D7E7A5E00B} = {00584639-0E4C-4D63-A12C-8CE737543A77}
+		{84542690-2BCE-45ED-8C07-C93BD937DE84} = {00584639-0E4C-4D63-A12C-8CE737543A77}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8A06CF58-802F-4980-998F-DBE596724662}
+	EndGlobalSection
+EndGlobal

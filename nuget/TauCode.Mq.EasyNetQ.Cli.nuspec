@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>TauCode.Mq.EasyNetQ.Cli</id>
+    <version>1.0.0.0-dev-2020-02-14-15-00</version>
+    <authors>TauCode</authors>
+    <owners>TauCode</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="file">LICENSE.txt</license>
+    <projectUrl>https://github.com/taucode/taucode.mq.easynetq.cli</projectUrl>
+    <description>CLI library for MQ/EasyNetQ support.</description>
+    <releaseNotes>
+      Initial version
+    </releaseNotes>
+    <tags>taucode message queue easynetq rabbitmq cli</tags>
+    <dependencies>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\LICENSE.txt" target="" />
+    <file src="..\src\TauCode.Mq.EasyNetQ.Cli\bin\Release\netstandard2.0\TauCode.Mq.EasyNetQ.Cli.dll" target="lib\netstandard2.0" />
+    <file src="..\src\TauCode.Mq.EasyNetQ.Cli\bin\Release\netstandard2.0\TauCode.Mq.EasyNetQ.Cli.pdb" target="lib\netstandard2.0" />
+  </files>
+</package>
