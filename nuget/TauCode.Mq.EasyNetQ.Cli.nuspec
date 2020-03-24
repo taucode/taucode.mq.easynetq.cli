@@ -15,7 +15,7 @@
     <tags>taucode message queue easynetq rabbitmq cli</tags>
     <dependencies>
       <group targetFramework=".NETStandard2.1">
-        <dependency id="TauCode.Cli" version="1.0.0-dev-2020-03-15-21-09" />
+        <dependency id="TauCode.Cli" version="1.0.0-dev-2020-03-24-22-35" />
         <dependency id="TauCode.Mq.Autofac" version="1.0.0-dev-2020-03-16-23-44" />
         <dependency id="TauCode.Mq.EasyNetQ" version="1.0.0-dev-2020-03-16-23-53" />
         <dependency id="TextCopy" version="3.0.1" />
