@@ -39,10 +39,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="TauCode.Cli" Version="1.0.0-dev-2020-03-24-22-35" />
-    <PackageReference Include="TauCode.Mq.Autofac" Version="1.0.0-dev-2020-03-16-23-44" />
-    <PackageReference Include="TauCode.Mq.EasyNetQ" Version="1.0.0-dev-2020-03-16-23-53" />
-    <PackageReference Include="TextCopy" Version="3.0.1" />
+    <PackageReference Include="TauCode.Cli" Version="1.0.1" />
+    <PackageReference Include="TauCode.Mq.Autofac" Version="1.0.1" />
+    <PackageReference Include="TauCode.Mq.EasyNetQ" Version="1.0.1" />
+    <PackageReference Include="TextCopy" Version="4.2.0" />
   </ItemGroup>
 
 </Project>
