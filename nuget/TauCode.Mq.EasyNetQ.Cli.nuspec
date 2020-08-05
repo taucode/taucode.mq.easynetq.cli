@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>TauCode.Mq.EasyNetQ.Cli</id>
-    <version>1.0.0.0-dev-2020-03-24-18-09</version>
+    <version>1.0.0.0-dev-2020-08-05-13-49</version>
     <authors>TauCode</authors>
     <owners>TauCode</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -15,10 +15,10 @@
     <tags>taucode message queue easynetq rabbitmq cli</tags>
     <dependencies>
       <group targetFramework=".NETStandard2.1">
-        <dependency id="TauCode.Cli" version="1.0.0-dev-2020-03-24-22-35" />
-        <dependency id="TauCode.Mq.Autofac" version="1.0.0-dev-2020-03-16-23-44" />
-        <dependency id="TauCode.Mq.EasyNetQ" version="1.0.0-dev-2020-03-16-23-53" />
-        <dependency id="TextCopy" version="3.0.1" />
+        <dependency id="TauCode.Cli" version="1.0.1" />
+        <dependency id="TauCode.Mq.Autofac" version="1.0.1" />
+        <dependency id="TauCode.Mq.EasyNetQ" version="1.0.1" />
+        <dependency id="TextCopy" version="4.2.0" />
       </group>
     </dependencies>
   </metadata>

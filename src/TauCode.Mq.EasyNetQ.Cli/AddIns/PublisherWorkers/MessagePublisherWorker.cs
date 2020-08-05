@@ -9,6 +9,7 @@ using TauCode.Cli.CommandSummary;
 using TauCode.Cli.Data;
 using TauCode.Extensions;
 using TauCode.Mq.Abstractions;
+using TextCopy;
 
 namespace TauCode.Mq.EasyNetQ.Cli.AddIns.PublisherWorkers
 {
@@ -39,7 +40,8 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns.PublisherWorkers
             {
                 if (isClipboard)
                 {
-                    json = TextCopy.Clipboard.GetText();
+                    var clipboard = new Clipboard();
+                    json = clipboard.GetText(); // todo: not sure if this will work.
                 }
                 else
                 {
