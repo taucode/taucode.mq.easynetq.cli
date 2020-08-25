@@ -7,8 +7,8 @@ using TauCode.Cli.Exceptions;
 using TauCode.Mq.Abstractions;
 using TauCode.Mq.Autofac;
 using TauCode.Mq.EasyNetQ.Cli.AddIns;
-using TauCode.Mq.EasyNetQ.Cli.AddIns.PublisherWorkers;
-using TauCode.Mq.EasyNetQ.Cli.AddIns.SubscriberWorkers;
+using TauCode.Mq.EasyNetQ.Cli.AddIns.PublisherExecutors;
+using TauCode.Mq.EasyNetQ.Cli.AddIns.SubscriberExecutors;
 using TauCode.Mq.EasyNetQ.Cli.Exceptions;
 
 namespace TauCode.Mq.EasyNetQ.Cli
@@ -107,21 +107,21 @@ namespace TauCode.Mq.EasyNetQ.Cli
                 typeof(PublisherAddIn),
                 typeof(SubscriberAddIn),
 
-                typeof(MessagePublisherWorker),
-                typeof(StartPublisherWorker),
-                typeof(StatusPublisherWorker),
-                typeof(StopPublisherWorker),
-                typeof(MessageTypePublisherWorker),
-                typeof(MessageTypesPublisherWorker),
+                typeof(MessagePublisherExecutor),
+                typeof(StartPublisherExecutor),
+                typeof(StatusPublisherExecutor),
+                typeof(StopPublisherExecutor),
+                typeof(MessageTypePublisherExecutor),
+                typeof(MessageTypesPublisherExecutor),
 
-                typeof(GetSubscriptionsSubscriberWorker),
-                typeof(HandlerTypesSubscriberWorker),
-                typeof(HandlerTypeSubscriberWorker),
-                typeof(StartSubscriberWorker),
-                typeof(StatusSubscriberWorker),
-                typeof(StopSubscriberWorker),
-                typeof(SubscribeHandlerSubscriberWorker),
-                typeof(UnsubscribeAllSubscriberWorker),
+                typeof(GetSubscriptionsSubscriberExecutor),
+                typeof(HandlerTypesSubscriberExecutor),
+                typeof(HandlerTypeSubscriberExecutor),
+                typeof(StartSubscriberExecutor),
+                typeof(StatusSubscriberExecutor),
+                typeof(StopSubscriberExecutor),
+                typeof(SubscribeHandlerSubscriberExecutor),
+                typeof(UnsubscribeAllSubscriberExecutor),
             };
 
             foreach (var cliType in cliTypes)

@@ -1,0 +1,4 @@
+2020-08-25
+==========
+    1. 'Worker' renamed to 'Executor'. Updated reference to TauCode.Cli.
+
