@@ -14,12 +14,12 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns
             this.Description = "Provides functionality for publishing messages.";
         }
 
-        protected override IReadOnlyList<ICliWorker> CreateWorkers()
+        protected override IReadOnlyList<ICliExecutor> CreateExecutors()
         {
             return this.LifetimeScope
-                .GetTypesDerivedFrom<CliWorkerBase>()
-                .Where(x => x.Name.EndsWith("PublisherWorker"))
-                .Select(t => (ICliWorker)this.LifetimeScope.Resolve(t))
+                .GetTypesDerivedFrom<CliExecutorBase>()
+                .Where(x => x.Name.EndsWith("PublisherExecutor"))
+                .Select(t => (ICliExecutor)this.LifetimeScope.Resolve(t))
                 .ToList();
         }
     }

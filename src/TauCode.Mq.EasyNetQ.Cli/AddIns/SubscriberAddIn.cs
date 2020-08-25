@@ -15,12 +15,12 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns
         }
 
 
-        protected override IReadOnlyList<ICliWorker> CreateWorkers()
+        protected override IReadOnlyList<ICliExecutor> CreateExecutors()
         {
             return this.LifetimeScope
-                .GetTypesDerivedFrom<CliWorkerBase>()
-                .Where(x => x.Name.EndsWith("SubscriberWorker"))
-                .Select(t => (ICliWorker)this.LifetimeScope.Resolve(t))
+                .GetTypesDerivedFrom<CliExecutorBase>()
+                .Where(x => x.Name.EndsWith("SubscriberExecutor"))
+                .Select(t => (ICliExecutor)this.LifetimeScope.Resolve(t))
                 .ToList();
         }
     }
