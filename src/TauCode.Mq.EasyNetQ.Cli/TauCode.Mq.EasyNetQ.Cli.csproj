@@ -5,41 +5,41 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\PublisherWorkers\MessagePublisherWorker.lisp" />
-    <None Remove="Resources\PublisherWorkers\MessageTypePublisherWorker.lisp" />
-    <None Remove="Resources\PublisherWorkers\MessageTypesPublisherWorker.lisp" />
-    <None Remove="Resources\PublisherWorkers\StartPublisherWorker.lisp" />
-    <None Remove="Resources\PublisherWorkers\StatusPublisherWorker.lisp" />
-    <None Remove="Resources\PublisherWorkers\StopPublisherWorker.lisp" />
-    <None Remove="Resources\SubscriberWorkers\GetSubscriptionsSubscriberWorker.lisp" />
-    <None Remove="Resources\SubscriberWorkers\HandlerTypesSubscriberWorker.lisp" />
-    <None Remove="Resources\SubscriberWorkers\HandlerTypeSubscriberWorker.lisp" />
-    <None Remove="Resources\SubscriberWorkers\StartSubscriberWorker.lisp" />
-    <None Remove="Resources\SubscriberWorkers\StatusSubscriberWorker.lisp" />
-    <None Remove="Resources\SubscriberWorkers\StopSubscriberWorker.lisp" />
-    <None Remove="Resources\SubscriberWorkers\SubscribeHandlerSubscriberWorker.lisp" />
-    <None Remove="Resources\SubscriberWorkers\UnsubscribeAllSubscriberWorker.lisp" />
+    <None Remove="Resources\PublisherExecutors\MessagePublisherExecutor.lisp" />
+    <None Remove="Resources\PublisherExecutors\MessageTypePublisherExecutor.lisp" />
+    <None Remove="Resources\PublisherExecutors\MessageTypesPublisherExecutor.lisp" />
+    <None Remove="Resources\PublisherExecutors\StartPublisherExecutor.lisp" />
+    <None Remove="Resources\PublisherExecutors\StatusPublisherExecutor.lisp" />
+    <None Remove="Resources\PublisherExecutors\StopPublisherExecutor.lisp" />
+    <None Remove="Resources\SubscriberExecutors\GetSubscriptionsSubscriberExecutor.lisp" />
+    <None Remove="Resources\SubscriberExecutors\HandlerTypesSubscriberExecutor.lisp" />
+    <None Remove="Resources\SubscriberExecutors\HandlerTypeSubscriberExecutor.lisp" />
+    <None Remove="Resources\SubscriberExecutors\StartSubscriberExecutor.lisp" />
+    <None Remove="Resources\SubscriberExecutors\StatusSubscriberExecutor.lisp" />
+    <None Remove="Resources\SubscriberExecutors\StopSubscriberExecutor.lisp" />
+    <None Remove="Resources\SubscriberExecutors\SubscribeHandlerSubscriberExecutor.lisp" />
+    <None Remove="Resources\SubscriberExecutors\UnsubscribeAllSubscriberExecutor.lisp" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\PublisherWorkers\MessagePublisherWorker.lisp" />
-    <EmbeddedResource Include="Resources\PublisherWorkers\StartPublisherWorker.lisp" />
-    <EmbeddedResource Include="Resources\PublisherWorkers\StatusPublisherWorker.lisp" />
-    <EmbeddedResource Include="Resources\PublisherWorkers\StopPublisherWorker.lisp" />
-    <EmbeddedResource Include="Resources\PublisherWorkers\MessageTypePublisherWorker.lisp" />
-    <EmbeddedResource Include="Resources\PublisherWorkers\MessageTypesPublisherWorker.lisp" />
-    <EmbeddedResource Include="Resources\SubscriberWorkers\GetSubscriptionsSubscriberWorker.lisp" />
-    <EmbeddedResource Include="Resources\SubscriberWorkers\UnsubscribeAllSubscriberWorker.lisp" />
-    <EmbeddedResource Include="Resources\SubscriberWorkers\HandlerTypeSubscriberWorker.lisp" />
-    <EmbeddedResource Include="Resources\SubscriberWorkers\HandlerTypesSubscriberWorker.lisp" />
-    <EmbeddedResource Include="Resources\SubscriberWorkers\SubscribeHandlerSubscriberWorker.lisp" />
-    <EmbeddedResource Include="Resources\SubscriberWorkers\StartSubscriberWorker.lisp" />
-    <EmbeddedResource Include="Resources\SubscriberWorkers\StatusSubscriberWorker.lisp" />
-    <EmbeddedResource Include="Resources\SubscriberWorkers\StopSubscriberWorker.lisp" />
+    <EmbeddedResource Include="Resources\PublisherExecutors\MessagePublisherExecutor.lisp" />
+    <EmbeddedResource Include="Resources\PublisherExecutors\StartPublisherExecutor.lisp" />
+    <EmbeddedResource Include="Resources\PublisherExecutors\StatusPublisherExecutor.lisp" />
+    <EmbeddedResource Include="Resources\PublisherExecutors\StopPublisherExecutor.lisp" />
+    <EmbeddedResource Include="Resources\PublisherExecutors\MessageTypePublisherExecutor.lisp" />
+    <EmbeddedResource Include="Resources\PublisherExecutors\MessageTypesPublisherExecutor.lisp" />
+    <EmbeddedResource Include="Resources\SubscriberExecutors\GetSubscriptionsSubscriberExecutor.lisp" />
+    <EmbeddedResource Include="Resources\SubscriberExecutors\UnsubscribeAllSubscriberExecutor.lisp" />
+    <EmbeddedResource Include="Resources\SubscriberExecutors\HandlerTypeSubscriberExecutor.lisp" />
+    <EmbeddedResource Include="Resources\SubscriberExecutors\HandlerTypesSubscriberExecutor.lisp" />
+    <EmbeddedResource Include="Resources\SubscriberExecutors\SubscribeHandlerSubscriberExecutor.lisp" />
+    <EmbeddedResource Include="Resources\SubscriberExecutors\StartSubscriberExecutor.lisp" />
+    <EmbeddedResource Include="Resources\SubscriberExecutors\StatusSubscriberExecutor.lisp" />
+    <EmbeddedResource Include="Resources\SubscriberExecutors\StopSubscriberExecutor.lisp" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="TauCode.Cli" Version="1.0.1" />
+    <PackageReference Include="TauCode.Cli" Version="1.2.0" />
     <PackageReference Include="TauCode.Mq.Autofac" Version="1.0.1" />
     <PackageReference Include="TauCode.Mq.EasyNetQ" Version="1.0.1" />
     <PackageReference Include="TextCopy" Version="4.2.0" />
