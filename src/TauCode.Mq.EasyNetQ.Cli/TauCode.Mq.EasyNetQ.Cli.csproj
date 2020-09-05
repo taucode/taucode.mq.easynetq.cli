@@ -39,9 +39,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="TauCode.Cli" Version="1.2.0" />
-    <PackageReference Include="TauCode.Mq.Autofac" Version="1.0.1" />
-    <PackageReference Include="TauCode.Mq.EasyNetQ" Version="1.0.1" />
+    <PackageReference Include="TauCode.Cli" Version="1.3.0" />
+    <PackageReference Include="TauCode.Mq.Autofac" Version="1.3.0" />
+    <PackageReference Include="TauCode.Mq.EasyNetQ" Version="1.3.0" />
     <PackageReference Include="TextCopy" Version="4.2.0" />
   </ItemGroup>
 
