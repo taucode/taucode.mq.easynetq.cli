@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Autofac;
-using Newtonsoft.Json;
+﻿using Autofac;
+using System;
+using System.Collections.Generic;
 using TauCode.Cli.Data;
 using TauCode.Extensions;
 
@@ -27,21 +26,22 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns.SubscriberExecutors
 
         public override void Process(IList<CliCommandEntry> entries)
         {
-            var subscriptions = this.MessageSubscriber
-                .GetSubscriptions()
-                .Select(x => new SubscriptionInfoDto
-                {
-                    MessageTypeFullName = x.MessageType.FullName,
-                    Topic = x.Topic,
-                    HandlerTypeFullName = x.MessageHandlerType.FullName,
-                })
-                .Select(x => JsonConvert.SerializeObject(x, Formatting.Indented))
-                .ToList();
+            throw new NotImplementedException();
+            //var subscriptions = this.MessageSubscriber
+            //    .GetSubscriptions()
+            //    .Select(x => new SubscriptionInfoDto
+            //    {
+            //        MessageTypeFullName = x.MessageType.FullName,
+            //        Topic = x.Topic,
+            //        HandlerTypeFullName = x.MessageHandlerType.FullName,
+            //    })
+            //    .Select(x => JsonConvert.SerializeObject(x, Formatting.Indented))
+            //    .ToList();
 
-            foreach (var subscription in subscriptions)
-            {
-                this.Output.WriteLine(subscription);
-            }
+            //foreach (var subscription in subscriptions)
+            //{
+            //    this.Output.WriteLine(subscription);
+            //}
         }
     }
 }

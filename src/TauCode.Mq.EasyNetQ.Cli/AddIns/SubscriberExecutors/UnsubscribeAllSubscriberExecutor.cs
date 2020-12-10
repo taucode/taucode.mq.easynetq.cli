@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using Autofac;
+using System.Collections.Generic;
 using TauCode.Cli.Data;
 using TauCode.Extensions;
 
@@ -18,7 +19,9 @@ namespace TauCode.Mq.EasyNetQ.Cli.AddIns.SubscriberExecutors
 
         public override void Process(IList<CliCommandEntry> entries)
         {
-            this.MessageSubscriber.UnsubscribeAll();
+            throw new NotImplementedException();
+
+            //this.MessageSubscriber.UnsubscribeAll();
         }
     }
 }

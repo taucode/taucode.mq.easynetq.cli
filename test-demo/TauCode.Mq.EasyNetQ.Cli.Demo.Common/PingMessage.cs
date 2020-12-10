@@ -17,7 +17,9 @@ namespace TauCode.Mq.EasyNetQ.Cli.Demo.Common
 
         public int Tag { get; set; }
 
+        public string Topic { get; set; }
         public string CorrelationId { get; set; }
-        public DateTime CreatedAt { get; set; }
+
+        public DateTimeOffset CreatedAt { get; set; }
     }
 }
